@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body::before {
     display: block;
     content: '';
@@ -5,8 +11,9 @@ body::before {
 }
 
 .hover-color:hover {
-    color: #2dccf0;
+    color: #03203C;
     cursor: pointer;
+    border-bottom: 3px solid #383CC1;
 }
 
 .image {
@@ -16,4 +23,10 @@ body::before {
 
 .icon {
     padding-left: 50px !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .sort {
+        display: none;
+    }
 }
