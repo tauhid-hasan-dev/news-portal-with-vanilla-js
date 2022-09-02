@@ -25,6 +25,14 @@ body::before {
     padding-left: 50px !important;
 }
 
+.navbar {
+    background-color: #03203C;
+}
+
+.alert {
+    background-color: #efefef;
+}
+
 @media only screen and (max-width: 600px) {
     .sort {
         display: none;
