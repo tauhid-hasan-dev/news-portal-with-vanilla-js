@@ -11,6 +11,10 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <!--  custom css -->
     <link rel="stylesheet" href="style.css">
+    <!--  fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Istanbul Times</title>
 </head>
 
@@ -40,65 +44,94 @@
         <!--   catergories -->
         <div class="container mt-4">
             <div class="row justify-content-between align-items-center">
-                <div class="col">
+                <div class="col hover-color">
                     <p class="d-inline-block text-center">Copyright </p>
                 </div>
-                <div class="col">
+                <div class="col hover-color">
                     <p class="d-inline-block text-center">Copyright </p>
                 </div>
-                <div class="col">
+                <div class="col hover-color">
                     <p class="d-inline-block text-center">Copyright </p>
                 </div>
-                <div class="col">
+                <div class="col hover-color">
                     <p class="d-inline-block text-center">Copyright </p>
                 </div>
-                <div class="col">
+                <div class="col hover-color">
                     <p class="d-inline-block text-center">Copyright </p>
                 </div>
-                <div class="col">
+                <div class="col hover-color">
                     <p class="d-inline-block text-center">Copyright </p>
                 </div>
-                <div class="col">
+                <div class="col hover-color">
                     <p class="d-inline-block text-center">Copyright </p>
                 </div>
-                <div class="col">
+                <div class="col hover-color">
                     <p class="d-inline-block text-center">Copyright </p>
                 </div>
-                <div class="col">
+                <div class="col hover-color">
                     <p class="d-inline-block text-center">Copyright </p>
                 </div>
             </div>
         </div>
         <hr>
-        <!--    total news in the category -->
+        <!-- total news in the category -->
         <div class="alert alert-info" role="alert">
             This is a info alert—check it out!
         </div>
+        <!-- news list -->
+        <div class="container ">
+            <div class="row">
+                <!-- news -->
+                <div class="col-12">
+                    <div class="card ">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bW90b3JjeWNsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                                    class="img-fluid rounded-start w-100 h-md-100 h-100" alt="...">
+                            </div>
+                            <div class="col-md-8 d-flex flex-column justify-content-between p-3">
+                                <div class="row ">
+                                    <div class="card-body ">
+                                        <h5 class="card-title fw-bold  ">Fundamental Of UI/UX </h5>
+                                        <p class="card-text ">Learn UI/UX fundamental with 10 real world project
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row d-flex">
+                                    <div class=" col-4 ">
+                                        <div class="row align-items-center">
+                                            <div class="col-8 d-flex ">
+                                                <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bW90b3JjeWNsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                                                    class="rounded-circle image" alt="...">
+                                                <p class="card-title fw-semibold mx-2 ">name </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 d-flex align-items-center justify-content-center ">
+                                        <h6 class="text-secondary"><i class="fa-regular fa-eye mx-2"></i>1.5M</h6>
+                                    </div>
+                                    <div class="col-3 d-flex justify-content-end align-items-center ">
+                                        <i class="fa-sharp fa-solid fa-arrow-right fs-3"></i>
+                                    </div>
 
-        <!-- footer -->
-        <footer>
-            <div class="footer-container">
-                <hr />
-                <div class="footer-nav">
-                    <a href="">Contact Us</a>
-                    <a href="">Terms of Services</a>
-                    <a href="">Privacy Policy</a>
-                    <a href="">Privacy Settings</a>
-                    <a href="">Goal App</a>
-                    <a href="">Goal Live</a>
-                </div>
-                <div class="social">
-                    <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/" target="_blank"><i
-                            class="fa-brands fa-instagram-square"></i></a>
-                    <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </footer>
-
+        </div>
     </main>
-
-
+    <footer class="p-5 bg-dark text-white text-center mt-5">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md">
+                    <p class="lead d-inline-block">Copyright &copy; Istanbul Times</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!--    bootstrap script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
