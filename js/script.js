@@ -26,11 +26,11 @@ const setCategoryMenu = async () => {
         categoryHolder.appendChild(categoryName)
     });
 }
-
+const spinner = document.getElementById('spinner');
 //function for loading new data by id and receving catergory name for dynamic error handling
 const loadNewsByCategory = async (id, category_name) => {
-    //console.log(id);
-    //console.log(category_name);
+    //spinner starts here
+    spinner.classList.remove('d-none')
     try {
         const url = `https://openapi.programming-hero.com/api/news/category/${id}`
         //console.log(url);
@@ -66,6 +66,7 @@ const showNewsByCategory = async (data, category_name) => {
             No news available in this category!
         </div>
         `
+        spinner.classList.add('d-none');
         return
     }
 
@@ -121,7 +122,8 @@ const showNewsByCategory = async (data, category_name) => {
         //console.log(newsCard);
         newsContainer.appendChild(newsCard);
     })
-
+    // spinner ends here
+    spinner.classList.add('d-none');
 }
 
 const loadDetails = async (newsId) => {
