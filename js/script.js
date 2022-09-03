@@ -21,46 +21,58 @@ const setCategoryMenu = async () => {
         const categoryName = document.createElement('div');
         categoryName.classList.add('col', 'hover-color', 'text-center', 'fw-semibold');
         categoryName.innerHTML = `
-            <p class="d-inline-block text-center" onclick = "loadNewsByCategory('${category_id}')">${category_name} </p>
+            <p class="d-inline-block text-center" onclick = "loadNewsByCategory('${category_id}', '${category_name}')">${category_name} </p>
         `
         categoryHolder.appendChild(categoryName)
     });
 }
 
 
-const loadNewsByCategory = async (id) => {
-    console.log(id);
+const loadNewsByCategory = async (id, category_name) => {
+    //console.log(id);
+    console.log(category_name);
     try {
         const url = `https://openapi.programming-hero.com/api/news/category/${id}`
         //console.log(url);
         const res = await fetch(url);
         const data = await res.json();
-        showNewsByCategory(data.data);
+        const dataById = data.data
+        showNewsByCategory(dataById, category_name);
     }
     catch (error) {
         console.log(error);
     }
 }
 const newsContainer = document.getElementById('news-container');
+const newsNumberContainer = document.getElementById('category-news');
 
-const showNewsByCategory = async (data) => {
+const showNewsByCategory = async (data, category_name) => {
     const newsdataByCategory = data;
     newsContainer.innerHTML = '';
-    console.log(data);
+
+    //'No item found' showing if category has no news to show
+    newsNumberContainer.innerHTML = '';
+    const newsNumber = document.createElement('h6');
+    newsNumber.innerHTML = `
+    ${newsdataByCategory.length === 0 ? 'No' : newsdataByCategory.length} items found for ${category_name}
+    `
     //error handling if category has no data
+    newsNumberContainer.appendChild(newsNumber)
     if (newsdataByCategory.length === 0) {
         newsContainer.innerHTML = `
-        <div class="alert alert-danger fs-1 bg-red" role="alert">
-            No new available in this category!
+        <div class="alert alert-danger fs-1 bg-red p-5" role="alert">
+            No news available in this category!
         </div>
         `
         return
     }
 
+
     newsdataByCategory.forEach(news => {
+
         const { total_view, title, thumbnail_url, author, details } = news;
         const { name, img } = author;
-        console.log(newsContainer);
+        //console.log(newsContainer);
         const newsCard = document.createElement('div');
         newsCard.classList.add('row', 'mt-5')
         newsCard.innerHTML = `
@@ -111,11 +123,14 @@ const showNewsByCategory = async (data) => {
                     </div>
                 </div>
         `
-        console.log(newsCard);
-        newsContainer.appendChild(newsCard)
+        //console.log(newsCard);
+        newsContainer.appendChild(newsCard);
+
     })
 
 }
+
+
 
 
 
