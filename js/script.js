@@ -27,7 +27,7 @@ const setCategoryMenu = async () => {
     });
 }
 
-
+//function for loading new data by id and receving catergory name for dynamic error handling
 const loadNewsByCategory = async (id, category_name) => {
     //console.log(id);
     console.log(category_name);
@@ -43,9 +43,11 @@ const loadNewsByCategory = async (id, category_name) => {
         console.log(error);
     }
 }
+
 const newsContainer = document.getElementById('news-container');
 const newsNumberContainer = document.getElementById('category-news');
 
+//function for showing news by category
 const showNewsByCategory = async (data, category_name) => {
     const newsdataByCategory = data;
     newsContainer.innerHTML = '';
@@ -67,9 +69,7 @@ const showNewsByCategory = async (data, category_name) => {
         return
     }
 
-
     newsdataByCategory.forEach(news => {
-
         const { total_view, title, thumbnail_url, author, details } = news;
         const { name, img } = author;
         //console.log(newsContainer);
@@ -97,15 +97,13 @@ const showNewsByCategory = async (data, category_name) => {
                                             <div class="col d-flex align-items-center">
                                                 <img src="${img}"
                                                     class="rounded-circle image" alt="...">
-                                                <p class="card-title fw-semibold mx-2 ">${name}</p>
+                                                <p class="card-title fw-semibold mx-2 ">${!name ? 'No Data Found!' : name}</p>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class=" col d-flex align-items-end justify-content-center ">
-                                        <h6 class="text-secondary"><i class="fa-regular fa-eye mx-2 "></i>${total_view}</h6>
+    <h6 class="text-secondary"><i class="fa-regular fa-eye mx-2 "></i>${!total_view ? 'No Data Found!' : total_view}</h6>
                                     </div>
-
                                     <div class=" col  d-flex justify-content-end align-items-center  ">
                                         <div>
                                             <a href="#" class="btn btn-info btn-sm mt-3 text-white">
@@ -113,11 +111,8 @@ const showNewsByCategory = async (data, category_name) => {
                                                 more
                                             </a>
                                         </div>
-
                                     </div>
-
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -129,10 +124,6 @@ const showNewsByCategory = async (data, category_name) => {
     })
 
 }
-
-
-
-
 
 
 //loadNewsByCategory();
