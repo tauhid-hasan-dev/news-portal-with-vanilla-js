@@ -108,7 +108,7 @@ const showNewsByCategory = async (data, category_name) => {
                                     <div class=" col  d-flex justify-content-end align-items-center  ">
                                         <div >
                                             <button type="button" class="btn btn-sm mt-3 text-white btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick = "loadDetails('${_id}')">
-                                            Read more..
+                                            Read more...
                                             </button>
                                         </div>
                                     </div>
@@ -139,8 +139,15 @@ const loadDetails = async (newsId) => {
 
 const showDetails = async (newsData) => {
     const { details, image_url } = newsData;
-    console.log(details, image_url);
-
+    const modalHolder = document.getElementById('modal-holder');
+    modalHolder.innerHTML = `
+    <div class="card ">
+        <img src="${image_url}" class="card-img-top" alt="...">
+        <div class="card-body ">
+            <p class="card-text fw-regular ">Catagory: ${details}</p>
+        </div>
+    </div>
+    `
 }
 
 
