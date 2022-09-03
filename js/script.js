@@ -30,7 +30,7 @@ const setCategoryMenu = async () => {
 //function for loading new data by id and receving catergory name for dynamic error handling
 const loadNewsByCategory = async (id, category_name) => {
     //console.log(id);
-    console.log(category_name);
+    //console.log(category_name);
     try {
         const url = `https://openapi.programming-hero.com/api/news/category/${id}`
         //console.log(url);
@@ -70,8 +70,9 @@ const showNewsByCategory = async (data, category_name) => {
     }
 
     newsdataByCategory.forEach(news => {
-        const { total_view, title, thumbnail_url, author, details } = news;
+        const { total_view, title, thumbnail_url, author, details, _id } = news;
         const { name, img } = author;
+        //console.log(_id);
         //console.log(newsContainer);
         const newsCard = document.createElement('div');
         newsCard.classList.add('row', 'mt-5')
@@ -105,11 +106,10 @@ const showNewsByCategory = async (data, category_name) => {
     <h6 class="text-secondary"><i class="fa-regular fa-eye mx-2 "></i>${!total_view ? 'No Data Found!' : total_view}</h6>
                                     </div>
                                     <div class=" col  d-flex justify-content-end align-items-center  ">
-                                        <div>
-                                            <a href="#" class="btn btn-info btn-sm mt-3 text-white">
-                                                <i class="bi bi-chevron-right text-white"></i>
-                                                more
-                                            </a>
+                                        <div >
+                                            <button type="button" class="btn btn-sm mt-3 text-white btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick = "loadDetails('${_id}')">
+                                            Read more..
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -120,8 +120,26 @@ const showNewsByCategory = async (data, category_name) => {
         `
         //console.log(newsCard);
         newsContainer.appendChild(newsCard);
-
     })
+
+}
+
+const loadDetails = async (newsId) => {
+    try {
+        const url = `https://openapi.programming-hero.com/api/news/${newsId}`
+        const res = await fetch(url);
+        const data = await res.json();
+        const newsData = data.data[0]
+        showDetails(newsData);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+const showDetails = async (newsData) => {
+    const { details, image_url } = newsData;
+    console.log(details, image_url);
 
 }
 
