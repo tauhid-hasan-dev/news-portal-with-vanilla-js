@@ -10,6 +10,10 @@ body::before {
     height: 100px;
 }
 
+.hover-color {
+    transition: border-bottom 200ms;
+}
+
 .hover-color:hover {
     color: #03203C;
     cursor: pointer;

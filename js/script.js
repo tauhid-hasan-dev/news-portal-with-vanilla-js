@@ -18,6 +18,7 @@ const setCategoryMenu = async () => {
     const category = await loadCategory()
     category.forEach(categoryObj => {
         const { category_id, category_name } = categoryObj;
+        console.log(category_name, category_id);
         const categoryName = document.createElement('div');
         categoryName.classList.add('col', 'hover-color', 'text-center', 'fw-semibold');
         categoryName.innerHTML = `
@@ -152,7 +153,5 @@ const showDetails = async (newsData) => {
     `
 }
 
-
-//loadNewsByCategory();
 setCategoryMenu();
 loadCategory();
