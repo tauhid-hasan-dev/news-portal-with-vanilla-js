@@ -18,7 +18,7 @@ const setCategoryMenu = async () => {
     const category = await loadCategory()
     category.forEach(categoryObj => {
         const { category_id, category_name } = categoryObj;
-        console.log(category_name, category_id);
+        //console.log(category_name, category_id);
         const categoryName = document.createElement('div');
         categoryName.classList.add('col', 'hover-color', 'text-center', 'fw-semibold');
         categoryName.innerHTML = `
@@ -70,8 +70,13 @@ const showNewsByCategory = async (data, category_name) => {
         spinner.classList.add('d-none');
         return
     }
-
+    //sorting array of object according to total view count
+    newsdataByCategory.sort((a, b) => {
+        return b.total_view - a.total_view
+    })
+    //appending news dynamically according to the category
     newsdataByCategory.forEach(news => {
+        //console.log(newsdataByCategory);
         const { total_view, title, thumbnail_url, author, details, _id } = news;
         const { name, img } = author;
         //console.log(_id);
@@ -121,11 +126,17 @@ const showNewsByCategory = async (data, category_name) => {
                 </div>
         `
         //console.log(newsCard);
+
         newsContainer.appendChild(newsCard);
+
     })
+
     // spinner ends here
     spinner.classList.add('d-none');
+
 }
+
+
 
 const loadDetails = async (newsId) => {
     try {
